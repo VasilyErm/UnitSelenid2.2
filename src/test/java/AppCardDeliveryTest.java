@@ -2,9 +2,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class AppCardDeliveryTest {
 
@@ -20,7 +23,7 @@ public class AppCardDeliveryTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
+//        options.addArguments("--headless");
         driver = new ChromeDriver(options);
         driver.get("http://localhost:9999");
     }
@@ -29,5 +32,11 @@ public class AppCardDeliveryTest {
     public void afterEach() {
         driver.quit();
         driver = null;
+    }
+
+    @Test
+    public void appCardDeliveryPositiveTest() {
+        $("[data-test-id='city'] .input__control").setValue("Санкт-Петербург");
+
     }
 }
