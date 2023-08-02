@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/mm4jv3egwk5yat08?svg=true)](https://ci.appveyor.com/project/VasilyErm/unitselenid2-2)
